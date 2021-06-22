@@ -1,0 +1,27 @@
+-> no terminal, para abrir o elixir interatido:
+--- iex -S mix
+
+-> pattern matching:
+
+-> subir o servidor:
+--- mix phx.server
+
+
+--> criar migration
+--> no terminal, digitar:
+--- mix ecto.gen.migration create_users_table
+--- resposta: creating priv/repo/migrations/20210622215656_create_users_table.exs
+--- no VSCode, construir o código da migration
+--- no terminal, executar a migration:
+--- mix ecto.migrate
+
+-> na tabela que será criada, configurar uuid:
+--- no VSCode, no arquivo config/config.exs inserir o seguinte código:
+--- config :wabanex, Wabanex.Repo,
+  migration_primary_key: [type: :binary_id],
+  migration_foreign_key: [type: :binary_id],
+
+-> para excluir/recriar a base de dados, no terminal:
+--- mix ecto.reset
+--- o comando acima vai dropar o banco, recriar e executar novamente a(s) migration(s)
+
